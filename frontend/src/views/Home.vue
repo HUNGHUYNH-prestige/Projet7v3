@@ -84,7 +84,6 @@ export default {
     margin: 0.2em;
     width: 100%;
     & #noPost-msg {
-      border: 1px solid red;
       border-radius: 30px;
       padding: 0.5em;
       margin: 0.5em;
