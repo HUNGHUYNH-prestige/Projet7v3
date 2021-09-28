@@ -45,7 +45,7 @@ footer {
   color: white;
   font-size: 1em;
   padding: 0.2em;
-  margin: 0.2em;
+  margin: auto;
   width: 99%;
   height: 100%;
   & #footer-text {

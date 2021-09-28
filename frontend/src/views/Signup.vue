@@ -77,21 +77,21 @@ export default {
             .then(function(result) {
                 console.log(result)
                 if (result.ok) {
-                    alert('Votre compte a bien été créé. Veuillez vous connecter.')
+                    alert('Super ! Votre compte a bien été créé. Vous pouvez vous connecter.')
                     router.push('/login')
                     return result.json();
                     
                 } else {
-                    if (result.status === 401) {
-                        alert("L'utilisateur existe déjà !")
-                    } else if (result.status === 500) {
+                    if (result.status == 401) {
+                        alert("AVERTISSEMENT : L'utilisateur existe déjà !")
+                    } else if (result.status == 500) {
                         wrongFieldsMessage.style.display = "flex"
                         wrongFieldsMessage.style.flexDirection= "column"
-                        wrongFieldsMessage.innerHTML = "<p>Certains champs ne sont pas valides.</p>"
-                    } else if (result.status === 400) {
+                        wrongFieldsMessage.innerHTML = "<p>ATTENTION :Certains champs ne sont pas valides.</p>"
+                    } else if (result.status == 400) {
                         wrongFieldsMessage.style.display = "flex"
                         wrongFieldsMessage.style.flexDirection= "column"
-                        wrongFieldsMessage.innerHTML = "<p>ATTENTION : Certains champs ne sont pas valides.</p><p>Le mot de passe doit contenir au moins :<br>- 8 caractères, dont<br>- 1 minuscule<br>- 1 majuscule<br>- 1 chiffre<br>- 1 caractère spécial</p>"
+                        wrongFieldsMessage.innerHTML = "<p>ATTENTION : Certains champs ne sont pas valides.</p><p>Le mot de passe doit contenir au moins :<br>- 8 caractères, dont<br>- 1 minuscule<br>- 1 majuscule<br>- 1 chiffre<br>- 1 caractère spécial<br> - Pas d'espace</p>"
                     }
                     
                     return;
@@ -99,7 +99,7 @@ export default {
             })
             .catch(function(error) {
                 console.log(error),
-                alert('Erreur de connexion au serveur')
+                alert('ATTENTION : Erreur de connexion au serveur')
             })
         }
     }
@@ -110,34 +110,37 @@ export default {
 
 <style scoped lang="scss">
 #content {
+    border: 1px solid pink;
+    border-radius: 30px;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.5em;
-    margin: 0.5em;
+    margin: auto;
+    padding: 0.1em;
 }
 
 #signup {
-    //border: 1px solid pink;
-    //border-radius: 30px;
-    width: 80%;
+    border: 1px dotted pink;
+    border-radius: 30px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin: 5em;
-    padding: 5em;
-    width: 80%;
+    width: 100%;
+    margin: auto;
     
     & h1 {
-        border: 1px solid red;
+        border: 1px solid pink;
         border-radius: 30px;
         padding: 1em;
         margin: 1em;
     }
     &_fail-msg {
-        font-size: 13px;
+        font-size: 1.5em;
         color: red;
         margin: 0.5em;
+        padding: 0.5em;
         width: 100%;
         & #missing-fields {
             display: none;
@@ -159,7 +162,7 @@ export default {
             }
             & input {
                 height: 40px;
-                padding: 0.5em;
+                padding: 0.1em;
             }
         }
         & .required {
@@ -167,18 +170,30 @@ export default {
             font-size: 0.8em;
         }
         & button {
-            margin-top : 20px;
-            background-color: rgb(50, 50, 50);
+            margin-top : 1em;
+            background-color: pink;
             color: white;
             font-weight: bold;
             cursor: pointer;
             padding: 1em;
+            border: 1px solid pink;
             border-radius: 30px;
         }
     }
     &_redirection {
         font-size: 1em;
-        margin: 1em;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #signup {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #signup {
+        width: 100%;
     }
 }
 

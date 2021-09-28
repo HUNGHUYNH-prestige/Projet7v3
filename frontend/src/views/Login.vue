@@ -42,13 +42,15 @@ export default {
     methods: {
         loginUser() {
             let wrongFieldsMessage = document.getElementById('wrong-fields')
+            // Create object for user data
             let userData = {
                 email: this.email,
                 password: this.password
             }
-            console.log("This is user data :")
-            console.log(userData)
+            //console.log("This is user data :")
+            //console.log(userData)
 
+            // Cannot accept empty fields
             if (userData.email == '' || userData.password == '') {
                 wrongFieldsMessage.style.display = "flex"
                 wrongFieldsMessage.innerHTML = "Veuillez compléter tous les champs avant de valider le formulaire."
@@ -69,13 +71,14 @@ export default {
                 } else {
                     if (response.status == 401) {
                         wrongFieldsMessage.style.display = "flex"
-                        wrongFieldsMessage.innerHTML = "Adresse email ou mot de passe incorrect(e)."
+                        wrongFieldsMessage.innerHTML = "ATTENTION : Adresse email ou mot de passe incorrect(e)."
                         return;
                     }
                 }
             })
             .then(data => {
                 if (data) {
+                    console.log(data)
                     localStorage.setItem('userToken', data.token);
                     localStorage.setItem('userId', data.userId)
                     localStorage.setItem('userAdmin', data.userAdmin)
@@ -86,8 +89,8 @@ export default {
                 
             })
             .catch(error => {
-                console.log(error),
-                alert('Erreur de connexion au serveur')
+                console.log(error)
+                alert('ATTENTION : Erreur de connexion au serveur')
             })
         }
     }
@@ -97,25 +100,27 @@ export default {
 
 <style scoped lang="scss">
 #content {
+    border: 1px solid pink;
+    border-radius: 30px;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.5em;
-    margin: 0.5em;
+    margin: auto;
 }
 #login {
-    border: 1px solid pink;
+    border: 1px dotted pink;
     border-radius: 30px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin: 5em;
-    padding: 5em;
-    width: 80%;
+    width: 100%;
+    margin: auto;
+    padding: 0.1em;
 
     & h1 {
-        border: 1px solid red;
+        border: 1px solid pink;
         border-radius: 30px;
         padding: 1em;
         margin: 1em;
@@ -128,8 +133,6 @@ export default {
         width: 100%;
         & #missing-fields {
             display: none;
-            border: 1px solid red;
-
         }
     }
     &_form {
@@ -145,32 +148,38 @@ export default {
             }
             & input {
                 height: 40px;
-                padding: 0.5em;
+                padding: 0.1em;
             }
         }
         & button {
-            margin-top : 20px;
-            background-color: rgb(50, 50, 50);
+            margin-top : 1em;
+            background-color: pink;
             color: white;
             font-weight: bold;
             cursor: pointer;
             padding: 1em;
+            border: 1px solid pink;
             border-radius: 30px;
         }
     }
     &_redirection {
         font-size: 1em;
-        margin: 1em;
     }
 }
 
 @media screen and (max-width: 320px) {
     #login {
-        width: 50%;
+        width: 100%;
     }
 }
 
 @media screen and (max-width: 768px) {
+    #login {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px) {
     #login {
         width: 100%;
     }
