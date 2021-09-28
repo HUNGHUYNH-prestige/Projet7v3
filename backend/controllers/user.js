@@ -93,8 +93,13 @@ exports.login = (req, res, next) => {
             if (!valid) {
                 return res.status(401).json({error: "Password not correct !"});
             } 
-            // ELSE : right password
+            // ELSE : right password => password hashed
             else {
+                console.log('--- --- --- --- ---')
+                console.log("This is the user password :")
+                console.log(user.password)
+                console.log('--- --- --- --- ---')
+                console.log(user)
                 res.status(200).json({
                     userId: user.id,
                     token: jwt.sign(

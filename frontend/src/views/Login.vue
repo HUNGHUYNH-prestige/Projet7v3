@@ -46,6 +46,8 @@ export default {
                 email: this.email,
                 password: this.password
             }
+            console.log("This is user data :")
+            console.log(userData)
 
             if (userData.email == '' || userData.password == '') {
                 wrongFieldsMessage.style.display = "flex"
