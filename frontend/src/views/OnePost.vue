@@ -109,11 +109,9 @@ export default {
     margin: auto;
     & #post-section {
         width: 100%;
-        border: 1px dotted blue;
     }
     & #comments-section {
         width: 100%;
-        border: 1px dotted blue;
     }
 }
 
