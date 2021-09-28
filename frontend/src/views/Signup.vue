@@ -118,8 +118,8 @@ export default {
 }
 
 #signup {
-    border: 1px solid pink;
-    border-radius: 30px;
+    //border: 1px solid pink;
+    //border-radius: 30px;
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -141,11 +141,9 @@ export default {
         width: 100%;
         & #missing-fields {
             display: none;
-            border: 1px solid red;
         }
         & #wrong-fields {
             display: none;
-            border: 1px solid red;
         }
     }
     &_form {
