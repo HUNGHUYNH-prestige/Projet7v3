@@ -162,7 +162,13 @@ export default {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 320px) {
+    #login {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
     #login {
         width: 100%;
     }

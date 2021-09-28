@@ -46,7 +46,7 @@ const routes = [
     path: '/posts/:id',
     name: 'post',
     component: () => 
-      import('../views/Post.vue'),
+      import('../views/OnePost.vue'),
     meta: {
       title: 'Post',
       requiresAuth: true
