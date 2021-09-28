@@ -21,12 +21,12 @@ With Vue Route and Vuex
 ## Project setup
 ```
 Before starting anything, use the command line to do :
-cd groupomania
+cd frontend
 You may need to do cd until you reach the right folder
 ```
 
 ```
-npm install in folder name : groupomania
+npm install in folder name : frontend
 ```
 
 ```
@@ -98,9 +98,11 @@ npm install -g sequelize-cli
 
 2. DATABASE CREATION with :
 
+Notice :
 npx sequelize = npx sequelize-cli
 if help is needed : npx sequelize --help
 
+Command to create a database :
 npx sequelize db:create
 
 3. MIGRATIONS with :
@@ -120,7 +122,7 @@ npx sequelize --help
 
 In order to set a user profile as ADMIN
 
-Take a look at the sql file
+Take a look at the SQL file
 
 Follow the command
 
@@ -128,5 +130,5 @@ Set the boolean isAdmin to 1 for true
 isAdmin = 1 means the user is an administrator
 isAdmin = 0 means the user is not an administrator
 
-Do the sql command in the command line interface of MySQL
+Do the SQL command in the command line interface of MySQL
 ```
