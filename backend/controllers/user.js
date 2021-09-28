@@ -54,9 +54,18 @@ exports.signup = (req, res, next) => {
                         password: hash,
                         profilePicture: 'http://localhost:3000/images/unknown.jpeg'
                     })
+
+                    .then((user)=>{
+                        console.log(user)
+                        res.status(201).json({
+                            message: "New user created and added ! Welcome !"
+                        })
+                    })
+/*
                     .then(() => res.status(201).json(
                         {message: "New user created and added ! Welcome !"}
                     ))
+*/
                     .catch(error => res.status(500).json({error}))
                 })
                 .catch(error => res.status(500).json({error}));

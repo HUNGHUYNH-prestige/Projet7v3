@@ -38,6 +38,9 @@ export default {
         DisplayComment
     },
     data() {
+        const userToken = localStorage.getItem('userToken')
+        console.log('User Token is :')
+        console.log(userToken)
         return {
             token: localStorage.getItem('userToken'),
             post: null,
@@ -47,6 +50,8 @@ export default {
     methods: {
         getPost() {
             const postId = this.$route.params.id;
+            console.log('The user ID in the database is :')
+            console.log(postId)
             fetch(`http://localhost:3000/api/posts/` + postId, {
                 headers: {
                     "Content-Type": "application/json",
@@ -74,6 +79,7 @@ export default {
             })
             .then(result => {
                 if (result.ok) {
+                    console.log('getComments result.ok = ' + result.ok)
                     return result.json()
                 }
             })
@@ -95,6 +101,7 @@ export default {
 
 <style lang="scss" scoped>
 #content {
+    border: 1px dotted pink;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,9 +109,11 @@ export default {
     margin: auto;
     & #post-section {
         width: 100%;
+        border: 1px dotted blue;
     }
     & #comments-section {
         width: 100%;
+        border: 1px dotted blue;
     }
 }
 

@@ -6,8 +6,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 // components export to being used by views
 
 // 2 import methods :
-// -- import Home from '../views/Home.vue'
-// -- component: () => import('../views/Homne.vue')
+// - method :  1  --> import Home from '../views/Home.vue'
+// - method :  2  --> component: () => import('../views/Homne.vue')
 
 const routes = [
   {
