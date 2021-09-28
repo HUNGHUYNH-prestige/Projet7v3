@@ -5,6 +5,10 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 // views import component
 // components export to being used by views
 
+// when the router is in use
+// there is : # in the url
+// # means : fragment identifier
+
 // 2 import methods :
 // - method :  1  --> import Home from '../views/Home.vue'
 // - method :  2  --> component: () => import('../views/Homne.vue')
