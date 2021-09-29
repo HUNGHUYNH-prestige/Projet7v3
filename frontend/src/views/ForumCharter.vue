@@ -3,8 +3,8 @@
     <MainHeader />
     <div id="content">
         <div id="charter-text">
-            <h1>ATTENTION : Règlement du forum</h1>
-            <p> Vous devez respecter le Règlement pour pouvoir profiter de cette espace convivial</p> 
+            <h1>ATTENTION : Règles de bonne conduite</h1>
+            <p> Vous devez respecter le Règlement pour pouvoir profiter de cet espace convivial</p> 
         </div>
         <div id="rules">
             <h2>TOUTES PUBLICATIONS</h2>
@@ -48,17 +48,31 @@ export default ({
 </script>
 
 <style lang="scss" scoped>
+
+#content {
+    //border: 1px solid orange;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1em;
+    margin: 0.1em;
+    width: 99%;
+    height: 100%;
+}
+
 #charter-text {
     border: 1px solid red;
-    padding: 2em;
-    margin: 2em;
+    padding: 0.1em;
+    margin: 0.1em;
     display: flex;
-    width: auto;
+    width: 100%;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     
     & h1 {
+        //border: 1px solid red;
         text-align: center;
         width:100%;
         font-size: 3em;
@@ -66,20 +80,50 @@ export default ({
         margin: 0.5em;
     }
     & p {
+        border: 1px solid grey;
         text-align: center;
         width: 100%;
-        font-size: 3em;
+        font-size: 2em;
         background: grey;
         color: white;
         padding: 0.5em;
         margin: 0.5em;
-
     }
 }
 #rules {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
     padding: 2em;
     margin: 2em;
-    border: 1px solid red;
-    width: auto;
+    border: 1px solid black;
+    & h2 {
+        border: 1px solid pink;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0.1em;
+        margin: 0.1em;
+        background: pink;
+    }
+    & ol {
+        //border: 1px solid blue;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 0.1em;
+        maring: 0.1em;
+    }
+    & li {
+        //border: 1px solid green;
+        width: 100%;
+        padding: 0.1em;
+        margin: 0.1em;
+    }
 }
 </style>
