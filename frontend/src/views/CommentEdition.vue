@@ -4,7 +4,7 @@
     <div v-if="this.comment && (this.comment.userId == this.currentUserId || isAdmin === true)" id="edition-content">
         <h1>Modifier le commentaire</h1>
         <main id="form-container">
-            <CommentEditionForm v-if="comment" :post="comment.postId" :comment="comment"/>
+            <CommentEditionForm v-if="comment" :post="comment.postId" :comment="comment" class="CommentEditionForm"/>
         </main>
     </div>
     <div v-else id="hidden-content">
@@ -49,7 +49,11 @@ export default ({
                 }
             })
             .then(comment => {
+                //console.log('Content of comment :')
                 console.log(comment);
+                //console.log(comment.id)
+                //console.log(comment.updatedAt)
+                //console.log(comment.Post.id)
                 this.comment = comment
                 localStorage.setItem('postComment', JSON.stringify(comment))
             })
@@ -64,23 +68,57 @@ export default ({
 
 <style lang="scss" scoped>
 #edition-content {
-    border: 1px solid orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: auto;
+    //border: 1px solid orange;
     border-radius: 30px;
-    padding: 1em;
-    margin: 1em;
+    padding: 0.1em;
+    margin: 0.1em;
+    & h1 {
+        //border: 1px solid red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0.1em;
+        margin: 0.1em;
+    }
+}
+
+#form-container {
+    //border: 1px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.1em;
+    margin: 0.1em;
+}
+
+.CommentEditionForm {
+    //border: 1px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.1em;
+    margin: 0.1em;
 }
 
 #hidden-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0.5em;
-    padding: 0.5em;
+    margin: 0.1em;
+    padding: 0.1em;
     & button {
-        font-size: 15px;
+        font-size: 1em;
         font-weight: bold;
-        padding: 0.5em;
-        margin: 0.5em;
+        padding: 0.1em;
+        margin: 0.1em;
         border: none;
         cursor: pointer;
         background-color: orange;

@@ -3,7 +3,7 @@
         <!-- l'évènement `submit` ne rechargera plus la page -->
         <form method="put" v-on:submit.prevent="editComment(this.$route.params.postId, comment.id)">
             <textarea placeholder="Modifier le commentaire" v-model="form.content"></textarea>
-            <button type="submit">Modifier le commentaire</button>
+            <button type="submit">Oui, modifier le commentaire</button>
         </form>
     </div>
 </template>
@@ -28,6 +28,9 @@ export default ({
         editComment(postId, commentId) {
             // send the content got from the form to update the comment of a post
             const commentData = this.form
+            //console.log(commentData)
+            //console.log('--- --- --- --- ---')
+            //console.log(this.form)
             fetch(`http://localhost:3000/api/posts/${postId}/comments/${commentId}`, {
                 method: 'PUT',
                 headers: {
@@ -58,11 +61,21 @@ export default ({
 
 <style lang="scss" scoped>
 form {
+    //border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+    padding: 0.1em;
+    margin: 0.1em;
     & textarea {
-        width: 95%;
-        padding: 2em;
-        margin: 0.5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 1em;
+        margin: 0.1em;
         height: 100px;
         border: 1px solid red;
         border-radius: 20px;
@@ -71,7 +84,7 @@ form {
         display: flex;
         justify-content: center;
         align-item: center;
-        width: 98%;
+        width: 100%;
         border: 1px solid black;
         border-radius: 20px;
         padding: 0.5em;
