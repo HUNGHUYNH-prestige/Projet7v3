@@ -23,6 +23,7 @@ export default ({
     props: ['post'],
     data() {
         const postData = JSON.parse(localStorage.getItem('postData'))
+        //console.log(postData)
         return {
             token: localStorage.getItem('userToken'),
             postData,
@@ -52,7 +53,7 @@ export default ({
                 body: formData
             })
             .then(res => {
-                console.log(res)
+                //console.log(res)
                 if (res.ok) {
                     alert('Mise à jour du post fait !')
                     localStorage.removeItem('postData')
@@ -76,51 +77,95 @@ export default ({
 
 <style lang="scss" scoped>
 form {
+    //border: 1px solid red;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    //flex-direction: column;
     gap: 1.5em;
+    width: 100%;
+    padding: 0.1em;
+    margin: 0.1em;
     & .form-field {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        //border: 1px solid red;
+        //flex-direction: column;
+        padding: 0.1em;
+        margin: 0.1em;
         & label {
+            width: 100%;
+            padding: 0.1em;
+            margin: 0.1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            //border: 1px solid red;
             font-size: 1em;
             font-weight: bold;
-            margin: 0.3em;
         }
         & input {
-            margin: 0.3em;
+            //border: 1px solid red;
+            padding: 0.1em;
+            margin: 0.1em;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1em;
+            height: 2em;
         }
     }
-    & #title-field {
-        & input {
-            height: 30px;
-        } 
-    }
-    & #content-field {
-        & textarea {
-            height: 130px;
-        }
-    }
+    
+   
     & #media-field {
+        //border: 1px solid red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        //height: 100%;
+        padding: 0.1em;
+        margin: 0.1em;
         & figure {
-            width: 250px;
-            height: 150px;
-            margin: 30px 0 10px 10px;
+            //border: 1px solid red;
+            width: 100%;
+            height: 100%;
+            margin: 0.1em;
+            padding: 0.1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             & img {
+                //border: 1px solid red;
                 object-fit: cover;
-                width: 250px;
-                height: 150px;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0.1em;
+                padding: 0.1em;
             }
         }
     }
     & button {
-        background: orange;
-        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-item: center;
+        width: 100%;
+        border: 1px solid black;
+        border-radius: 20px;
+        padding: 0.5em;
+        margin: 0.5em;
         color: black;
         font-weight: bold;
-        border-radius: 30px;
-        width: 100%;
-        height: 40px;
+        background: orange;
+        cursor: pointer;
     }
 }
 </style>

@@ -49,7 +49,7 @@ export default ({
                 }
             })
             .then(post => {
-                console.log(post)
+                //console.log(post)
                 this.post = post
                 localStorage.setItem('postData', JSON.stringify(post))
             })
@@ -63,18 +63,43 @@ export default ({
 </script>
 
 <style  lang="scss" scoped>
+#page-container {
+    //border: 1px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0em;
+    margin: 0em;
+}
+
 #edition-content {
-    padding: 0.5em;
-    margin: 0.5em;
+    //border: 1px solid red;
+    padding: 0.1em;
+    margin: 0.1em;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     & h1 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        //border: 1px solid red;
         margin: 0.5em;
         padding: 0.5em;
     }
     & #form-container {
-        background-color: white;
-
-        padding: 0.5em;
-        margin: 0.5em;
+        //border: 1px solid orange;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        padding: 0.1em;
+        margin: 0.1em;
     }
 }
 
