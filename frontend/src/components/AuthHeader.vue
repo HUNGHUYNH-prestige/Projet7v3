@@ -24,24 +24,40 @@ export default ({
 
 <style scoped lang="scss">
 header {
+    //border: 1px solid pink;
+    //border-radius: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
+    padding: 0.5em;
+    margin: auto;
     background: white;
     width: 95%;
+    & a {
+        //border: 1px solid red;
+        //border-radius: 30px;
+        //padding: 0.5em;
+    }
     & #logo {
+        //border: 1px solid red;
+        //border-radius: 30px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        width: 95%;
+        width: 100%;
+        margin: auto;
+        padding: 0.1em;
     }
 }
 
 nav {
+    //border: 1px solid red;
+    //border-radius: 30px;
     & ul {
+        //border: 1px solid red;
+        //border-radius: 30px;
         list-style-type: none;
         display: flex;
         justify-content: center;
@@ -62,6 +78,7 @@ nav {
         margin: 0.5em;
         &:hover {
         color: red;
+        background: pink;
         }
     }
 }
@@ -69,34 +86,51 @@ nav {
 // split the header when mobile screen size
 @media screen and (max-width: 900px) {
     header {
+        //border: 1px solid red;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 0px;
+        margin: auto;
     }
 
     nav {
-        width: 99%;
+        //border: 1px solid red;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 0px;
+        margin: auto;
     }
 
     nav ul {
+        //border: 1px solid red;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0.2em;
-        margin: 0px;
+        padding: 0em;
+        margin: auto;
     }
 
+    
     nav li {
+        //border: 1px solid red;
         display: flex;
-        justify-content: center;
-        width: 100%;
+        padding-left: 0.1em;
+        padding-right: 0.1em;
+        justify-content: space-around;
+        //width: 100%;
     }
+    
 
-    nav li:hover {
-        background: pink;
+    nav ul li a {
+        color: black;
+        &:hover {
+            color: red;
+            background: pink;
+        }
     }
 }
 
