@@ -78,7 +78,8 @@ export default {
             })
             .then(data => {
                 if (data) {
-                    console.log(data)
+                    //console.log(data)
+                    //console.log('LOGIN')
                     localStorage.setItem('userToken', data.token);
                     localStorage.setItem('userId', data.userId)
                     localStorage.setItem('userAdmin', data.userAdmin)

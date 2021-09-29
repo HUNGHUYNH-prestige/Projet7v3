@@ -40,10 +40,12 @@ export default {
       })
       .then(result => {
         if (result.ok) {
+          //console.log(result.ok)
           return result.json()
         }
       })
       .then(data => {
+        //console.log(data)
         this.posts = data
       })
       .catch(error => {
@@ -59,61 +61,66 @@ export default {
 
 <style lang="scss" scoped>
 #page-container {
-  border: 1px solid red;
+  //border: 1px solid orange;
   border-radius: 30px;
-  padding: 0.1em;
-  margin: 0.1em;
+  padding: 0px;
+  margin: 10px;
   & h1 {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 50px;
-    border: 1px solid red;
-    border-radius: 30px;
-    padding: 0.5em;
-    margin: 0.5em;
+    border-bottom: 1px solid green;
+    padding: 0.1em;
+    margin: 0.1em;
   }
 }
 
 #content {
   display: flex;
+  //border: 1px solid orange;
   flex-direction: column;
   align-items: center;
-  padding: 1em;
-  margin: auto;
+  padding: 0px;
+  margin: 0px;
   width: 100%;
   & #postsList {
-    padding: 0.2em;
-    margin: 0.2em;
+    //border: 1px solid orange;
+    padding: 0em;
+    margin: 0em;
     width: 100%;
     & #noPost-msg {
-      border-radius: 30px;
-      padding: 0.5em;
-      margin: 0.5em;
-      display: flex;
-      justify-content: center;
+      //border: 1px solid orange;
+      padding: 0em;
+      margin: 0em;
+      width: 100%;
     }
   }
 }
 
 @media screen and (min-width: 700px) {
     #content {
-        width: 80%;
+      //border: 1px solid orange;
+      width: 100%;
     }
 }
 
 @media screen and (min-width: 800px) {
     #content {
-        width: 80%;
+      width: 100%;
     }
 }
 
 @media screen and (min-width: 900px) {
     #content {
-        width: 80%;
+      width: 100%;
     }
 }
 
 @media screen and (min-width: 1200px) {
     #content {
-        width: 80%;
+      width: 100%;
     }
 }
 </style>

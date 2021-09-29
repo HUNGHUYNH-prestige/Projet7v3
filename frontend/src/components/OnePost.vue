@@ -1,30 +1,29 @@
 <template>
-
   <div id="post-container">
     <!-- MAIN PAGE POST -->
     <div id="post-container_top">
-        <div id="user-informations">
-            <img v-bind:src="post.User.profilePicture" alt="photo de profil de l'utilisateur">
-            <div>
-                  <p id="name">
-                    <router-link :to="{name: 'userProfile', params: {id: post.User.id}}">
-                      <span>{{post.User.firstname}} {{post.User.lastname}}</span>
-                    </router-link>
-                    a posté le :
-                    <span id="department">{{post.User.department}}</span></p>
-                
-                <time id="date">{{getDate(post.createdAt)}} à {{ getHour(post.createdAt) }}</time>
-            </div>
-        </div>
-        <div v-if="post.User.id == currentUserId || userAdmin === true" id="post-options">
-            <button @click="editionRedirection(post.id)" aria-label="Editer le post">
-              <img src="../assets/edit.png" alt="icone d'édition du post">
-            </button>
-            <button v-on:click="deletePost(post.id)" aria-label="Supprimer le post">
-                x
-            </button>
-        </div>
-    </div>
+      <div id="user-informations">
+        <img v-bind:src="post.User.profilePicture" alt="photo de profil de l'utilisateur">
+          <div>
+            <p id="name">
+              <router-link :to="{name: 'userProfile', params: {id: post.User.id}}">
+                <span>{{post.User.firstname}} {{post.User.lastname}}</span>
+              </router-link>
+              a posté le :
+              <time id="date">{{getDate(post.createdAt)}} à {{ getHour(post.createdAt) }}</time>
+              <span class="departement"> dept. </span>
+              <span id="department">{{post.User.department}}</span></p>
+          </div>
+      </div>
+      <div v-if="post.User.id == currentUserId || userAdmin === true" id="post-options">
+        <button @click="editionRedirection(post.id)" aria-label="Editer le post">
+          <img src="../assets/edit.png" alt="icone d'édition du post">
+        </button>
+        <button v-on:click="deletePost(post.id)" aria-label="Supprimer le post">
+          x
+        </button>
+      </div>
+  </div>
     <!-- POST CONTENT -->
     <h2>{{post.title}}</h2>
     <figure id="postsList-img">
@@ -64,9 +63,11 @@ export default ({
   },
   methods: {
     getDate(date) {
+      // get a full date = timestamp without milliseconds
       return moment(date).locale('fr').format('LL');
     },
     getHour(hour) {
+      // LT : Local Timing
       return moment(hour).locale('fr').format('LT')
     },
     editionRedirection(postId) {
@@ -118,13 +119,17 @@ export default ({
         }
       })
       .then(result => {
+        //console.log(result.ok)
         if (result.ok) {
+          //promise pending
+          //console.log(result.json())
           return result.json()
         } else {
           return;
         }
       })
       .then(data => {
+        //console.log(data)
         if (data !== null) {
           this.postIsLiked = true;
         }
@@ -186,6 +191,7 @@ export default ({
       color : blue;
       font-weight: bold;
       & #department {
+        color: black;
         font-weight: normal;
         font-size: 0.8em;
       }
@@ -193,6 +199,10 @@ export default ({
     & #date {
       font-size: 0.8em;
       color: darkblue;;
+    }
+    & .departement {
+      color: green;
+      font-size: 0.8em;
     }
   }
   & #post-options {
