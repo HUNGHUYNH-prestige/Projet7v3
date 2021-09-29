@@ -115,7 +115,7 @@ const routes = [
       title: 'Charte du forum',
       requiresAuth: true
     }
-  },
+  }
 ]
 
 const router = createRouter({
