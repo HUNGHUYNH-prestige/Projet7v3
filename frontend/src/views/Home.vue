@@ -45,7 +45,13 @@ export default {
         }
       })
       .then(data => {
-        //console.log(data)
+        // data -> post in posts
+        console.log(data)
+        //console.log(data.length)
+        //console.log(data[1].Comments.length)
+        //console.log(data[0].Comments[0].postId)
+        //console.log(data[0].Comments[0].id)
+        //console.log(data[0].Likes[0].userId)
         this.posts = data
       })
       .catch(error => {

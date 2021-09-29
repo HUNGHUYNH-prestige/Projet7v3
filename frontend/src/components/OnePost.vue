@@ -256,8 +256,10 @@ router-link {
   }
   & #comments {
     width: 50%;
+    //border: 1px solid red;
     & button {
       display: flex;
+      justify-content: center;
       background-color: transparent;
       border: none;
       align-items: center;
