@@ -113,7 +113,6 @@ nav {
         padding: 0em;
         margin: auto;
     }
-
     
     nav li {
         //border: 1px solid red;
@@ -124,7 +123,6 @@ nav {
         //width: 100%;
     }
     
-
     nav ul li a {
         color: black;
         &:hover {

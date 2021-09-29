@@ -46,7 +46,7 @@ footer {
   font-size: 1em;
   padding: 0.2em;
   margin: auto;
-  width: 99%;
+  width: 90%;
   height: 100%;
   & #footer-text {
     color: blue;
@@ -63,21 +63,34 @@ footer {
     display: flex;
     justify-content: center;
     align-item: center;
-    padding: 1em;
+    padding: 0.1em;
+    margin: auto;
+    border: 1px dotted pink;
+    background: pink;
+    border-radius: 30px;
     width: 99%;
   }
   & #footer-box {
+    //border: 1px solid red;
+    //border-radius: 30px;
     display: flex;
     justify-content: center;
     align-item: center;
     padding: 0.2em 0.5em 0.2em 0.5em;
+    margin: auto;
     & a {
+      //border: 1px solid red;
+      margin: auto;
+      padding: 1px;
+      width: 100%;
       text-decoration: none;
       color: black;
       &:hover {
+        width: 100%;
         border: 3px solid yellow;
-        border-radius: 20px;
-        color: black;
+        border-radius: 10px;
+        color: red;
+        padding: 0.2em 0.5em 0.2em 0.5em;
       }
     }
   }
