@@ -8,6 +8,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 // when the router is in use
 // there is : # in the url
 // # means : fragment identifier
+// createWebHashHistory => # : it seems that it can be used without a server
 
 // 2 import methods :
 // - method :  1  --> import Home from '../views/Home.vue'
