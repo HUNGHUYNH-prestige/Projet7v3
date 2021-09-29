@@ -91,10 +91,12 @@ export default {
             })
         }
     },
-   mounted() {
+    // when the view is set, please mount this.methods to display the content on the screen
+    mounted() {
         this.getPost();
         this.getComments();
     }
+    
 }
 
 </script>
