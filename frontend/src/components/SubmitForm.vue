@@ -19,6 +19,7 @@ export default ({
     name: "SubmitForm",
     props: ['submitAction', 'onSelectedFile'],
     data() {
+        // Get the data from the local storage : ready to use
         return {
             token: localStorage.getItem('userToken'),
             title: '',
@@ -26,17 +27,21 @@ export default ({
         }
     },
     methods: {
+        // Put a new file
         onFileChanged(event) {
             this.selectedFile = event.target.files[0]
         },
+        // Create a post with the form
         createPost() {
             const userId = JSON.parse(localStorage.getItem('userId'));
+            // Prepare the form
             const formData = new FormData();
             if (this.selectedFile == null) {
                 alert('ATTENTION : Fichier vide !')
                 return;
             }
 
+            // Insert data in the form
             formData.append('file', this.selectedFile);
             formData.append('title', this.title);
             formData.append('userId', userId);
@@ -69,28 +74,60 @@ export default ({
 
 <style lang="scss" scoped>
 form {
+    //border: 1px solid red;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0.1em;
+    margin: 0.1em;
+    //flex-direction: column;
     gap: 1.5em;
     & .form-field {
+        //border: 1px solid green;
+        width: 100%;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 0.1em;
+        margin: 0.1em;
+        //flex-direction: column;
         & label {
+            //border: 1px solid orange;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-size: 1em;
             font-weight: bold;
-            margin: 0.8em;
+            margin: 0.1em;
+            padding: 0.1em;
         }
     }
     & #title-field {
+        /*
+        border: 1px solid yellow;
+        background: yellow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.1em;
+        margin: 0.1em;
+        */
         & input {
+            //border: 1px solid orange;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.1em;
+            margin: 0.1em;
             height: 50px;
         } 
     }
-    & #content-field {
-        & textarea {
-            height: 130px;
-        }
-    }
+    
     & button {
         font-weight: bold;
         cursor: pointer;
