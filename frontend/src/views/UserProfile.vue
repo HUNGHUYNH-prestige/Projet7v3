@@ -46,6 +46,7 @@ export default {
         OnePost
     },
     data() {
+        // Get the data from the local storage : ready for use
         return {
             userAdmin: JSON.parse(localStorage.getItem('userAdmin')),
             currentUserId: JSON.parse(localStorage.getItem('userId')),
@@ -55,14 +56,17 @@ export default {
         }
     },
     methods: {
+        // Direction home page
         homeRedirection() {
             this.$router.push('/home')
         },
+        // Direction edit page
         editionRedirection() {
             this.$router.push(`/profiles/${this.$route.params.id}/edit`)
         },
+        // Direction delete account
         deleteAccount(id) {
-            if (confirm("ATTENTION : Suppression du compte du compte ! Toutes vos données seront perdues.")) {
+            if (confirm("ATTENTION : Suppression du compte ! Toutes vos données seront perdues.")) {
                 fetch('http://localhost:3000/api/users/' + id, {
                     method: 'DELETE',
                     headers: {
@@ -84,10 +88,12 @@ export default {
                 return;
             }
         },
+        // Logout
         logout() {
             localStorage.clear();
             this.$router.push('Login');
         },
+        // Fetch the user profile content
         getUserProfile(id) {
             fetch(`http://localhost:3000/api/users/` + id, {
                 headers: {
@@ -100,12 +106,14 @@ export default {
                     return result.json()
                 }
             })
+            // Display profile content
             .then(user => {
                 console.log(user)
                 this.user = user
             })
             .catch(error => console.log(error))
         },
+        // Fetch the user posts content
         getUsersPosts() {
             fetch(`http://localhost:3000/api/posts/users/${this.$route.params.id}`, {
                 headers: {
@@ -118,6 +126,7 @@ export default {
                     return result.json()
                 }
             })
+            // Display the post content
             .then(posts => {
                 this.posts = posts
             })
@@ -135,13 +144,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0.1em;
+    margin: 0.1em;
+}
+
 #content {
     display: flex;
-    flex-direction: column;
+    //flex-direction: column;
     justify-content: center;
-    padding: 0.5em;
-    margin: 0.5em;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0.1em;
+    margin: 0.1em;
+    //border: 1px solid pink;
+    width: 90%;
     & #profile-banner {
+        border: 1px solid pink;
+        width: 100%;
+        padding: 0.1em;
+        margin: 0.1em;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -149,60 +176,115 @@ export default {
         background: pink;
         color: white;
         & h1 {
-            font-size: 3em;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 2em;
+            padding: 0.1em;
+            margin: 0.1em;
+            //border: 1px solid black;
         }
     }
     & #profile-view {
+        //border: 1px solid orange;
+        //background: orange;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
         width: 100%;
-        margin: auto;
-        padding: 0;
-        gap: 20px;
+        margin: 0.1em;
+        padding: 0.1em;
+        //gap: 20px;
         & aside {
+            //border: 1px solid red;
+            //background: red;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            flex-wrap: wrap;
+            //flex-direction: column;
             align-items: center;
-            margin: 0.5em;
-            width: 30%;
-            padding: 0.5em;
+            margin: 0.1em;
+            padding: 0.1em;
+            width: 100%;
         }
         & main {
-            width: 70%;
-            margin: 1em;
-            padding: 1em;
+            //background: pink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            margin: 0.1em;
+            padding: 0.1em;
+            //border: 1px solid black;
             & #posts-list-container {
+                //background: black;
                 display: flex;
-                flex-direction: column;
+                justify-content: center;
+                flex-wrap: wrap;
+                //flex-direction: column;
                 align-items: center;
-                margin: auto;
-                width: 95%;
-                border: 1px solid red;
+                margin: 0.1em;
+                padding: 0.1em;
+                width: 100%;
+                //border: 1px solid red;
+                & h2 {
+                    // /border: 1px solid red;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    padding: 0.1em;
+                    margin: 0.1em;
+                    width: 100%;
+                }
             }
         }
     }
     & #options {
-        width: 80%;
-        border: 1px solid red;
-        border-radius: 30px;
-        padding: 0.5em;
-        margin: 0.5em;
+        //background: yellow;
+        width: 100%;
+        //border: 1px solid red;
+        //border-radius: 30px;
+        padding: 0.1em;
+        margin: 0.1em;
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        //flex-direction: column;
         align-items: center;
-        gap: 10px;
+        //gap: 10px;
         justify-content: center;
         & button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
             font-size: 1em;
             font-weight: bold;
-            padding: 0.5em;
-            margin: 0.5em;
-            border: 1px solid transparent;
+            padding: 0.1em;
+            margin: 0.1em;
+            border: none;
             border-radius: 30px;
             cursor: pointer;
         }
         &_modify {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 0.1em;
+            margin: 0.1em;
             & button {
-                background-color: orange;
+                border: 1px solid orange;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                background: orange;
                 color: white;
                 font-size: 1em;
                 padding: 0.5em;
@@ -210,10 +292,22 @@ export default {
             }
         }
         &_delete {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 0.1em;
+            margin: 0.1em;
             & button {
-                background-color: red;
+                border: 1px solid red;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                background: red;
                 color: white;
-                font0size: 1em;
+                font-size: 1em;
                 padding: 0.5em;
                 margin: 0.5em;
             }
@@ -223,7 +317,8 @@ export default {
 
 #hidden-content {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    //flex-direction: column;
     align-items: center;
     margin: 0.5em;
     padding: 0.5em;
@@ -238,46 +333,4 @@ export default {
     }
 }
 
-@media screen and (max-width: 990px) {
-    #content {
-       & #profile-view {
-            width: 100%;
-            flex-direction: column;
-            & aside {
-                flex-direction: column-reverse;
-                justify-content: center;
-                gap: 30px;
-                width: 100%;
-            }
-            & main {
-                width: 100%;
-                margin: auto;
-            & #posts-list-container {
-                width: 90%;
-            }
-        }
-        } 
-    }
-}
-
-@media screen and (max-width: 768px) {
-    #content {
-       & #profile-view {
-            & main {
-                & #posts-list-container {
-                    width: 100%;
-                }
-
-            }
-        } 
-    }
-}
-
-@media screen and (min-width: 1400px) {
-    #content {
-        & #profile-view {
-            width: 90%;
-        }
-    }
-}
 </style>

@@ -38,40 +38,59 @@ export default ({
 
 <style lang="scss" scoped>
 #user-profile {
-    border: 1px solid green;
+    border: 1px solid lightgreen;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+    //flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2em;
-    margin: 1.5em;
+    padding: 0.1em;
+    margin: 0.1em;
     background: lightgreen;
     &_img {
         height: 120px;
         width: 120px;
-        border: 1px solid green;
-        position: relative;
-        top: -70px;
+        border: 1px solid lightgreen;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.1em;
+        margin: 0.1em;
+        //position: relative;
+        
         & img {
+            border: 1px solid lightgreen;
+            border-radius: 10px;
+            padding: 0.1em;
+            margin: 0.1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             object-fit: cover;
             height: 100%;
             width: 100%;
         }
     }
     &_infos {
+        border-top: 5px solid yellow;
+        //border-bottom: 1px solid yellow;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        //flex-direction: column;
         align-items: center;
         width: 100%;
-        position: relative;
-        top: -50px;
-        padding: 1em;
-        margin: 1em;
+        //position: relative;
+        //top: -50px;
+        padding: 0.1em 0.1em 0.1em 0.1em;
+        margin: 0.1em;
+        flex-wrap: wrap;
         & h2 {
             width: 100%;
-            border-bottom: 1px solid red;
             border-left: 1px solid red;
+            border-bottom: 1px solid red;
             padding: 0.5em;
+            margin: 0.1em;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -82,11 +101,20 @@ export default ({
             border-bottom: 1px solid red;
             border-left: 1px solid red;
             padding: 0.5em;
-            margin: 0.5em;
+            margin: 0.1em;
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            //flex-direction: column;
             align-items: center;
             &_name {
+                width: 100%;
+                //border: 1px solid red;
+                padding: 0.1em;
+                margin: 0.1em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 font-weight: bold;
                 //text-decoration: wavy red underline overline;
                 //text-decoration: 1px double overline black;
@@ -95,15 +123,4 @@ export default ({
     }
 }
 
-@media screen and (max-width: 1000px) {
-    #user-profile {
-        width: 100%;
-        &_img {
-            top: 0px;
-        }
-        &_infos {
-            top: 0px;
-        }
-    }
-}
 </style>
