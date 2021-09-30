@@ -29,6 +29,7 @@ export default ({
         ProfileEditionForm
     },
     data() {
+        // Get the data in the local storage : prepare the data for use
         return {
             currentUserId: JSON.parse(localStorage.getItem('userId')),
             isAdmin: JSON.parse(localStorage.getItem('userAdmin')),
@@ -37,9 +38,11 @@ export default ({
         }
     },
     methods: {
+        // Direction to home page
         homeRedirection() {
             this.$router.push('/home')
         },
+        // Fetch into the API to get the user
         getUserProfile(id) {
             fetch(`http://localhost:3000/api/users/` + id, {
                 headers: {
@@ -53,7 +56,8 @@ export default ({
                 }
             })
             .then(user => {
-                console.log(user)
+                //console.log(user)
+                //console.log(user.email)
                 this.user = user
                 localStorage.setItem('userData', JSON.stringify(user))
             })
@@ -69,64 +73,66 @@ export default ({
 <style lang="scss" scoped>
 
 #profile-content {
-    border: 1px solid red;
+    //border: 1px solid red;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 0.5em;
-    padding: 0.5em;
-    gap: 40px;
+    flex-wrap: wrap;
+    //flex-direction: column;
+    margin: 0.1em;
+    padding: 0.1em;
+    gap: 1em;
+    width: 100%;
     &_banner {
-        border: 1px solid red;
+        border: 1px solid pink;
         border-radius: 30px;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 150px;
+        height: 100px;
         color: white;
         background: pink;
         & h1 {
-            font-size: 3em;
+            //border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            paddding: 0.1em;
+            margin: 0.1em;
+            font-size: 2em;
+            text-align: center;
         }
     }
     &_form {
-        width: 550px;
+        border: 1px solid pink;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0.1em;
+        margin: 0.1em;
     }
 }
 
 #hidden-content {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 0.5em;
-    padding: 0.5em;
+    //flex-direction: column;
+    text-align: center;
+    margin: 0.1em;
+    padding: 0.1em;
     & button {
         font-size: 1em;
         font-weight: bold;
-        padding: 0.5em;
-        margin: 0.5em;
+        padding: 0.1em;
+        margin: 0.1em;
         border: none;
         cursor: pointer;
         background: orange;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    #profile-content_form {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 900px) {
-    #profile-content_form {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    #profile-content_form {
-        width: 100%;
     }
 }
 
