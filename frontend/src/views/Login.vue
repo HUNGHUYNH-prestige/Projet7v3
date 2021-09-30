@@ -100,6 +100,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
+#page-container {
+    //border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0.1em;
+    margin: 0.1em;
+}
+
 #content {
     border: 1px solid pink;
     border-radius: 30px;
@@ -148,8 +159,10 @@ export default {
                 font-weight: bold;
             }
             & input {
+                border: 1px solid gray;
                 height: 40px;
                 padding: 0.1em;
+                margin: 0.1em;
             }
         }
         & button {
