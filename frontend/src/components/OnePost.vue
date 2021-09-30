@@ -73,6 +73,7 @@ export default ({
     editionRedirection(postId) {
       this.$router.push(`/posts/${postId}/edit`)
     },
+    // Delete the post
     deletePost(id) {
       if (confirm("ATTENTION : Suppression du post ?")) {
         fetch('http://localhost:3000/api/posts/' + id, {
@@ -94,6 +95,7 @@ export default ({
         })
       }
     },
+    // Update the like in the post
     likePost() {
       fetch(`http://localhost:3000/api/posts/${this.post.id}/likes`,{
         method: 'POST',

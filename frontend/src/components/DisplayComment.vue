@@ -10,9 +10,11 @@
                             <span>{{comment.User.firstname}} {{comment.User.lastname}}</span>
                         </router-link>
                         a écrit le :
+                        <time id="date">{{getDate(comment.createdAt)}} à {{ getHour(comment.createdAt) }}</time>
+                        <span class="departement"> dept. </span>
                         <span id="department">{{comment.User.department}}</span>
                     </p>
-                    <time id="date">{{getDate(comment.createdAt)}} à {{ getHour(comment.createdAt) }}</time>
+                    
                 </div>
             </div>
             <div v-if="comment.User.id == currentUserId || userAdmin === true" id="post-options">
@@ -113,6 +115,10 @@ export default ({
             & #date {
                 font-size: 0.8em;
                 color: darkblue;
+            }
+            & .departement {
+                color: green;
+                font-size: 0.8em;
             }
         }
         & #post-options {
