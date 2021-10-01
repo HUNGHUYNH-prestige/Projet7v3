@@ -46,7 +46,7 @@ export default {
       })
       .then(data => {
         // data -> post in posts
-        console.log(data)
+        //console.log(data)
         //console.log(data.length)
         //console.log(data[1].Comments.length)
         //console.log(data[0].Comments[0].postId)
