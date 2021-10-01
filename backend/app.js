@@ -10,6 +10,9 @@ const fs         = require('fs');
 const userRoutes = require('./routes/user');
 const postRoutes = require('./routes/post');
 
+// This Express middleware sets some HTTP response headers to try to disable client-side caching.
+const nocache    = require('nocache');
+
 // MySQL connexion : sync all models into tables in the database named : socialnetwork
 // MySQL user : root
 db.sequelize.sync()
@@ -27,6 +30,9 @@ const app = express();
 
 // Helmet protection activated
 app.use(helmet());
+
+// Use nocache to clear cache
+app.use(nocache());
 
 // CORS management : header protection
 app.use((req, res, next) => {
