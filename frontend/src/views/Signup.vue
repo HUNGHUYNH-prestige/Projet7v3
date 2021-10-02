@@ -10,19 +10,19 @@
             <form method="post" v-on:submit.prevent="signupUser" id="signup_form">
                 <div id="firstname-field" class="form-field">
                     <label for="firstname">Prénom <span class="required">*</span></label>
-                    <input type="text" id="firstname" name="firstname" minlength="2" placeholder="ex: David" v-model="firstname">
+                    <input required type="text" id="firstname" name="firstname" minlength="2" placeholder="ex: David" v-model="firstname">
                 </div>
                 <div id="lastname-field" class="form-field"> 
                     <label for="lastname">Nom <span class="required">*</span></label>
-                    <input type="text" id="lastname" name="lastname" minlength="2" placeholder="ex: MARTIN" v-model="lastname">
+                    <input required type="text" id="lastname" name="lastname" minlength="2" placeholder="ex: MARTIN" v-model="lastname">
                 </div>
                 <div id="email-field" class="form-field">
                     <label for="email">Adresse e-mail <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" minlength="10" placeholder="ex: davidmartin@gmail.com" v-model="email">
+                    <input required type="email" id="email" name="email" minlength="10" placeholder="ex: davidmartin@gmail.com" v-model="email">
                 </div>
                 <div id="password-field" class="form-field">
                     <label for="password">Mot de passe <span class="required">*</span></label>
-                    <input type="password" id="password" name="password" minlength="8" v-model="password">
+                    <input required type="password" id="password" name="password" minlength="8" v-model="password">
                 </div>
                 <button type="submit">Je m'inscris</button>
             </form>
@@ -93,7 +93,6 @@ export default {
                         wrongFieldsMessage.style.flexDirection= "column"
                         wrongFieldsMessage.innerHTML = "<p>ATTENTION : Certains champs ne sont pas valides.</p><p>Le mot de passe doit contenir au moins :<br>- 8 caractères, dont<br>- 1 minuscule<br>- 1 majuscule<br>- 1 chiffre<br>- 1 caractère spécial<br> - Pas d'espace</p>"
                     }
-                    
                     return;
                 }
             })
@@ -103,7 +102,6 @@ export default {
             })
         }
     }
-
 }
 
 </script>
