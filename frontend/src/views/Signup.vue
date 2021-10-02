@@ -87,7 +87,7 @@ export default {
                     } else if (result.status == 500) {
                         wrongFieldsMessage.style.display = "flex"
                         wrongFieldsMessage.style.flexDirection= "column"
-                        wrongFieldsMessage.innerHTML = "<p>ATTENTION :Certains champs ne sont pas valides.</p>"
+                        wrongFieldsMessage.innerHTML = "<p>ATTENTION : Certains champs ne sont pas valides. Vérifiez à nouveau !</p>"
                     } else if (result.status == 400) {
                         wrongFieldsMessage.style.display = "flex"
                         wrongFieldsMessage.style.flexDirection= "column"
