@@ -133,8 +133,8 @@ form {
         margin: 0.1em;
         & figure {
             //border: 1px solid red;
-            width: 100%;
-            height: 100%;
+            width: 50%;
+            height: 50%;
             margin: 0.1em;
             padding: 0.1em;
             display: flex;
