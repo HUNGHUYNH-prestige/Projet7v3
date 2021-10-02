@@ -5,6 +5,7 @@ export default createStore({
     companyName: "Groupomania",
   },
   // getters used in App.vue
+  // getters (in vuex) = computed (in vue)
   getters: {
     copyright: (state) => {
       const currentYear = new Date().getFullYear()
