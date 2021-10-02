@@ -9,8 +9,20 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    // define association here
+    /*
+    remember that : 
+    User hasMany Post, Comment, Like
+    Post hasMany Comment, Like
+    and
+    Comment belongsTo User and Post
+    */
+   /*
+   The Comment.belongsTo(User) association means
+   that a One-To-One relationship exists between Comment and User,
+   with the FOREIGN KEY being defined in the source model (Comment)
+   */
     static associate(models) {
-      // define association here
       models.Comment.belongsTo(models.User, {
         onDelete: 'CASCADE'
       })

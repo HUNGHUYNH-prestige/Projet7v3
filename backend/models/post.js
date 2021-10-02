@@ -9,6 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    // define the association here
+    /*
+    The Post.hasmany(Comment) association means
+    that a One-To-Many relationship exists between Post and Comment,
+    with the FOREIGN KEY being defined in the target model (Comment)
+    */
     static associate(models) {
       models.Post.hasMany(models.Comment);
       models.Post.hasMany(models.Like);
@@ -17,6 +23,15 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'cascade'
       });
     }
+    /*
+    To create a One-To-Many relationship
+    the hasmany and belongsTo associations are user together
+    */
+   /*
+   The Post.belongsTo(User) association means
+   that a One-To-One relationship exists between Post and User,
+   with the FOREIGN KEY being defined in the source model (Post)
+   */
   };
   Post.init({
     title: {
