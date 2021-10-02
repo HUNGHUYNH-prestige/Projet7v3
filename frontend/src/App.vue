@@ -17,7 +17,8 @@
 
 <script>
 import { mapGetters } from "vuex"
-// mapGetters => $store.getters. + computed object
+// mapGetters => $store.getters. + computed object => getters => copyright
+// vue => computed === vuex => getters
 export default {
   name: "App",
   computed: {
