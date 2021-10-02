@@ -91,7 +91,7 @@ export default {
                     } else if (result.status == 400) {
                         wrongFieldsMessage.style.display = "flex"
                         wrongFieldsMessage.style.flexDirection= "column"
-                        wrongFieldsMessage.innerHTML = "<p>ATTENTION : Certains champs ne sont pas valides.</p><p>Le mot de passe doit contenir au moins :<br>- 8 caractères, dont<br>- 1 minuscule<br>- 1 majuscule<br>- 1 chiffre<br>- 1 caractère spécial<br> - Pas d'espace</p>"
+                        wrongFieldsMessage.innerHTML = "<p>ATTENTION : Certains champs ne sont pas valides. Vérfiez : email et/ou mot de passe </p><p>Le mot de passe doit contenir au moins :<br>- 8 caractères, dont<br>- 1 minuscule<br>- 1 majuscule<br>- 1 chiffre<br>- 1 caractère spécial<br> - Pas d'espace</p>"
                     }
                     return;
                 }
